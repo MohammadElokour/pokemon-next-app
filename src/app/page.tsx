@@ -1,6 +1,11 @@
+import Loader from "@src/components/loader";
 import PokemonTypes from "@src/components/pokemon-types";
-import Image from "next/image";
+import { Suspense } from "react";
 
 export default function Home() {
-  return <PokemonTypes />;
+  return (
+    <Suspense fallback={<Loader />}>
+      <PokemonTypes />
+    </Suspense>
+  );
 }
