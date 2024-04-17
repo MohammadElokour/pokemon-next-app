@@ -1,10 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import {
-  getTypeColor,
-  getTypeIdFromUrl,
-  getTypeNameFromTypeId,
-} from "@src/utils/shared";
+import { getTypeIdFromUrl } from "@src/utils/shared";
 import { Pokemon } from "@src/types/pokemon";
 import Image from "next/image";
 
@@ -21,16 +17,18 @@ const getPokemonData = async (url: string) => {
 
 const PokemonCard = async ({ typeId, pokemon }: PokemonPerTypeProps) => {
   const { name: pokemonName, url } = pokemon;
-  const typeName = getTypeNameFromTypeId(typeId);
-  const bgColor = getTypeColor(typeName);
 
   const pokemonData = await getPokemonData(url);
-  const pokemonImgSrc = pokemonData.sprites.front_default ?? "/pokeball.png";
+  const { sprites, types, id } = pokemonData;
+  const pokemonImgSrc = sprites.front_default ?? "/pokeball.png";
+  const type1Color = types[0].type.name;
+  const type2Color = types.length > 1 ? types[1].type.name : type1Color;
+  const bgGradient = `bg-gradient-to-r from-${type1Color} to-${type2Color}`;
 
   return (
-    <Link href={`/pokemon/${pokemonData.id}`}>
+    <Link href={`/pokemon/${id}`}>
       <div
-        className={`${bgColor} p-2 w-full min-h-[200px] bg-opacity-60 hover:bg-opacity-100 rounded-2xl flex justify-evenly items-center cursor-pointer`}
+        className={`${bgGradient} p-2 w-full min-h-[200px] hover:shadow-slate-800 hover:shadow-lg rounded-2xl flex justify-evenly items-center cursor-pointer`}
       >
         <Image
           src={pokemonImgSrc}

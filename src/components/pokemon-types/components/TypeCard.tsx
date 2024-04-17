@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { getTypeColor, getTypeIdFromUrl } from "@src/utils/shared";
+import { getTypeIdFromUrl } from "@src/utils/shared";
 import Image from "next/image";
 
 type TypeProps = {
@@ -9,12 +9,12 @@ type TypeProps = {
 
 const TypeCard = ({ typeData }: TypeProps) => {
   const { name: typeName, url } = typeData;
-  const bgColor = getTypeColor(typeName);
+  const bgColor = `bg-${typeName}`;
   const id = getTypeIdFromUrl(url);
   return (
     <Link href={`pokemon/type/${id}`}>
       <div
-        className={`${bgColor} w-full min-h-40 bg-opacity-65 hover:bg-opacity-85 rounded-2xl flex justify-evenly items-center cursor-pointer`}
+        className={`${bgColor} w-full min-h-40 bg-opacity-80 hover:shadow-slate-800 hover:shadow-lg rounded-2xl flex justify-evenly items-center cursor-pointer`}
       >
         <Image
           className="shadow-2xl rounded-full"

@@ -16,7 +16,7 @@ const Error = ({
         <p className="text-4xl text-gray-700 font-semibold mb-2">{title}</p>
         <p className="text-3xl text-gray-700 font-semibold">{msg}</p>
         <Image
-          className="rounded-full z-10 my-7"
+          className="rounded-full z-10 my-7 mx-auto"
           src="/error.png"
           alt="error img"
           quality={50}
@@ -25,7 +25,7 @@ const Error = ({
           priority
         />
         <Link href="/">
-          <div className="flex p-2 border-2 rounded-2xl border-gray-700 hover:bg-blue-200 text-center gap-2 w-fit mx-auto">
+          <div className="flex p-2 border-2 rounded-2xl border-gray-700 hover:bg-blue-50 text-center gap-2 w-fit mx-auto">
             <Back size="34" color="#222" />
             <p className="text-gray-700 text-lg font-semibold self-center">
               Back to homepage
