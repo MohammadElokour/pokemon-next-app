@@ -28,10 +28,7 @@ const PokemonPerType = async ({ id }: { id: string }) => {
   return (
     <section className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full">
       {pokemonList.map(({ pokemon }) => (
-        <Suspense
-          key={pokemon.name}
-          fallback={<Loader width={100} height={100} />}
-        >
+        <Suspense key={pokemon.name} fallback={<Loader size={100} />}>
           <PokemonCard typeId={id} pokemon={pokemon} />
         </Suspense>
       ))}

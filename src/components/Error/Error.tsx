@@ -11,10 +11,10 @@ const Error = ({
   msg?: string;
 }) => {
   return (
-    <div className="flex w-full rounded-2xl bg-slate-200 text-center justify-center">
+    <div className="flex w-full rounded-2xl bg-slate-800 text-center justify-center">
       <div className="self-center">
-        <p className="text-4xl text-gray-700 font-semibold mb-2">{title}</p>
-        <p className="text-3xl text-gray-700 font-semibold">{msg}</p>
+        <p className="text-4xl text-gray-300 font-semibold mb-2">{title}</p>
+        <p className="text-3xl text-gray-300 font-semibold">{msg}</p>
         <Image
           className="rounded-full z-10 my-7 mx-auto"
           src="/error.png"
@@ -25,9 +25,9 @@ const Error = ({
           priority
         />
         <Link href="/">
-          <div className="flex p-2 border-2 rounded-2xl border-gray-700 hover:bg-blue-50 text-center gap-2 w-fit mx-auto">
-            <Back size="34" color="#222" />
-            <p className="text-gray-700 text-lg font-semibold self-center">
+          <div className="flex p-2 border-2 rounded-2xl border-gray-300 hover:bg-slate-900 text-center gap-2 w-fit mx-auto">
+            <Back size="34" color="#f1f1f1" />
+            <p className="text-gray-300 text-lg font-semibold self-center">
               Back to homepage
             </p>
           </div>

@@ -8,9 +8,6 @@ type PokemonTypeData = {
 };
 
 const PokemonTypes = async () => {
-  // Add fake delay to show loader style
-  await new Promise<void>((res) => setTimeout(() => res(), 3000));
-
   const res = await fetch("https://pokeapi.co/api/v2/type/");
 
   if (!res.ok) return <Error />;

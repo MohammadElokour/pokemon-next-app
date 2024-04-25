@@ -1,1 +1,1 @@
-export const getTypeIdFromUrl = (typeUrl: string) => typeUrl.split("/").at(-2);
+export const getTypeIdFromUrl = (typeUrl: string) => typeUrl.split("/").at(-2)!;

@@ -7,6 +7,7 @@ import TypeBadge from "./TypeBadge";
 import ReactApexChart from "react-apexcharts";
 import { Pokemon } from "@src/types/pokemon";
 import Loader from "@src/components/loader";
+import { getTypeIdFromUrl } from "@src/utils/shared";
 
 const PokemonDetailsCard = ({ pokemonData }: { pokemonData: Pokemon }) => {
   const { name, sprites, types, stats, weight, height } = pokemonData;
@@ -15,6 +16,8 @@ const PokemonDetailsCard = ({ pokemonData }: { pokemonData: Pokemon }) => {
   const type2Color = types.length > 1 ? types[1].type.name : type1Color;
   const type1Name = type1Color;
   const type2Name = types.length > 1 ? types[1].type.name : null;
+  const type1Id = getTypeIdFromUrl(types[0].type.url);
+  const type2Id = types.length > 1 ? getTypeIdFromUrl(types[1].type.url) : null;
   const bgGradient = `bg-gradient-to-r from-${type1Color} to-${type2Color}`;
   const baseStatsValues = stats.map((stat) => stat.base_stat);
   const weightInKg = weight / 10;
@@ -108,23 +111,23 @@ const PokemonDetailsCard = ({ pokemonData }: { pokemonData: Pokemon }) => {
 
   return (
     <div
-      className={`${bgGradient} p-5 w-full flex flex-col items-center justify-between min-h-[200px] bg-opacity-85 rounded-2xl z-0 pb-16 sm:pb-24`}
+      className={`${bgGradient} w-full flex flex-col items-center justify-between bg-opacity-85 rounded-2xl z-0 gap-10 overflow-x-hidden`}
     >
-      <div className="w-full flex  justify-between items-center gap-1">
-        <TypeBadge typeName={type1Name} />
-        <p className="text-center mt-3.5 sm:mt-0 text-xl sm:text-4xl uppercase text-nowrap overflow-hidden text-ellipsis max-w-fit text-white font-bold tracking-wider">
+      <div className="w-full flex p-5 justify-between items-center gap-1 sticky top-0 backdrop-blur-md z-20">
+        <TypeBadge typeId={type1Id} typeName={type1Name} />
+        <p className="text-center text-xl sm:text-4xl uppercase text-nowrap overflow-hidden text-ellipsis max-w-fit text-white font-bold tracking-wider">
           {name}
         </p>
-        {type2Name ? (
-          <TypeBadge typeName={type2Name} />
+        {type2Name && type2Id ? (
+          <TypeBadge typeId={type2Id} typeName={type2Name} />
         ) : (
           <div className="invisible">
-            <TypeBadge typeName={type1Name} />
+            <TypeBadge typeId={type1Id} typeName={type1Name} />
           </div>
         )}
       </div>
-      <div className="flex items-center flex-col sm:flex-row gap-5">
-        <div className="flex flex-col text-center justify-center">
+      <div className="flex items-center flex-col sm:flex-row gap-10">
+        <div className="flex flex-col text-center justify-center gap-4">
           <Image
             className="w-[150px] h-[150px] sm:w-[300px] sm:h-[300px] self-center"
             src={pokemonImgSrc}
@@ -165,6 +168,7 @@ const PokemonDetailsCard = ({ pokemonData }: { pokemonData: Pokemon }) => {
           />
         </div>
       </div>
+      <div id="spacer"></div>
     </div>
   );
 };

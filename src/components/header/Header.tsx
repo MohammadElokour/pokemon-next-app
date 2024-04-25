@@ -5,22 +5,22 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <>
-      <div className="fixed top-0 w-full h-10 bg-blue-50 z-10" />
-      <div className="sticky top-5 flex text-center flex-col gap-10 p-5 sm:p-10 bg-blue-200 rounded-3xl shadow-xl z-20">
-        <Link href="/" className="flex justify-center child:w-auto">
-          <Image
-            src="/pokemon_logo.png"
-            alt="Pokemon Logo"
-            quality={100}
-            width={250}
-            height={75}
-            priority
-          />
-        </Link>
-        <SearchInput />
-      </div>
-    </>
+    <div>
+      <Link
+        href="/"
+        className="flex self-center justify-center items-center mx-auto py-5 hover:ring my-4 ring-blue-900 rounded-full transition-all w-fit px-8"
+      >
+        <Image
+          src="/pokemon_logo.png"
+          alt="Pokemon Logo"
+          quality={100}
+          width={250}
+          height={75}
+          priority
+        />
+      </Link>
+      <SearchInput />
+    </div>
   );
 };
 

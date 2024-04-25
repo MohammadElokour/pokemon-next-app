@@ -2,13 +2,11 @@ import Image from "next/image";
 import React from "react";
 
 const Loader = ({
-  bgColor = "bg-slate-200",
-  width = 150,
-  height = 150,
+  bgColor = "bg-slate-800",
+  size = 150,
 }: {
   bgColor?: string;
-  width?: number;
-  height?: number;
+  size?: number;
 }) => {
   return (
     <div
@@ -20,8 +18,8 @@ const Loader = ({
           src="/pokeloader.gif"
           alt="Pokeball Loader"
           quality={100}
-          width={width}
-          height={height}
+          width={size}
+          height={size}
         />
       </div>
     </div>
