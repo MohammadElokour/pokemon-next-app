@@ -14,7 +14,7 @@ const TypeCard = ({ typeData }: TypeProps) => {
   return (
     <Link href={`pokemon/type/${id}`}>
       <div
-        className={`${bgColor} w-full min-h-40 hover:ring ring-white transition-all rounded-2xl flex justify-evenly items-center cursor-pointer`}
+        className={`${bgColor} w-full min-h-40 hover:ring-inset hover:ring-4 ring-white transition-all rounded-2xl flex justify-evenly items-center cursor-pointer`}
       >
         <Image
           className="ring ring-white rounded-full"

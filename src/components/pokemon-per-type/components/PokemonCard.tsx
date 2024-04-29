@@ -28,7 +28,7 @@ const PokemonCard = async ({ typeId, pokemon }: PokemonPerTypeProps) => {
   return (
     <Link href={`/pokemon/${id}`}>
       <div
-        className={`${bgGradient} p-2 w-full min-h-[200px] transition-all hover:ring ring-white rounded-2xl flex justify-evenly items-center cursor-pointer`}
+        className={`${bgGradient} p-2 w-full min-h-[200px] transition-all hover:ring-inset hover:ring-4 ring-white rounded-2xl flex justify-evenly items-center cursor-pointer`}
       >
         <Image
           src={pokemonImgSrc}
