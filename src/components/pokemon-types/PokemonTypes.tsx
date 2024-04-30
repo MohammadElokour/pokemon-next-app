@@ -1,6 +1,6 @@
 import React from "react";
+import Error from "@src/components/Error";
 import TypeCard from "./components/TypeCard";
-import Error from "../Error";
 
 type PokemonTypeData = {
   count: number;
@@ -10,11 +10,11 @@ type PokemonTypeData = {
 const PokemonTypes = async () => {
   const res = await fetch("https://pokeapi.co/api/v2/type/");
 
-  if (!res.ok) return <Error />;
+  if (!res.ok) return <Error hideBtn />;
 
   const data = (await res.json()) as PokemonTypeData;
 
-  if (!data.count) return <Error />;
+  if (!data.count) return <Error hideBtn />;
 
   const pokemonTypesList = data.results;
 

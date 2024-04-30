@@ -1,14 +1,9 @@
-import Loader from "@src/components/loader";
+import React from "react";
 import PokemonPerType from "@src/components/pokemon-per-type";
-import React, { Suspense } from "react";
 
 const PokemonBasedOnType = ({ params }: { params: { typeId: string } }) => {
   const { typeId } = params;
-  return (
-    <Suspense key={typeId} fallback={<Loader />}>
-      <PokemonPerType id={typeId} />
-    </Suspense>
-  );
+  return <PokemonPerType id={typeId} />;
 };
 
 export default PokemonBasedOnType;

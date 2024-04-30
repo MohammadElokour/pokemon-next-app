@@ -1,12 +1,10 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 import TypeBadge from "./TypeBadge";
 import ReactApexChart from "react-apexcharts";
 import { Pokemon } from "@src/types/pokemon";
-import Loader from "@src/components/loader";
 import { getTypeIdFromUrl } from "@src/utils/shared";
 
 const PokemonDetailsCard = ({ pokemonData }: { pokemonData: Pokemon }) => {

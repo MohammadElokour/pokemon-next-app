@@ -1,14 +1,16 @@
-import { Back } from "iconic-react";
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Back } from "iconic-react";
 
 const Error = ({
+  hideBtn = false,
   title = "Server Error!",
   msg = "Please try again later",
 }: {
   title?: string;
   msg?: string;
+  hideBtn?: boolean;
 }) => {
   return (
     <div className="flex w-full rounded-2xl bg-slate-800 text-center justify-center">
@@ -24,14 +26,16 @@ const Error = ({
           height={220}
           priority
         />
-        <Link href="/">
-          <div className="flex p-2 border-2 rounded-2xl border-gray-300 hover:bg-slate-900 text-center gap-2 w-fit mx-auto">
-            <Back size="34" color="#f1f1f1" />
-            <p className="text-gray-300 text-lg font-semibold self-center">
-              Back to homepage
-            </p>
-          </div>
-        </Link>
+        {!hideBtn && (
+          <Link href="/">
+            <div className="flex p-2 border-2 rounded-2xl border-gray-300 hover:bg-slate-900 text-center gap-2 w-fit mx-auto">
+              <Back size="34" color="#f1f1f1" />
+              <p className="text-gray-300 text-lg font-semibold self-center">
+                Back to homepage
+              </p>
+            </div>
+          </Link>
+        )}
       </div>
     </div>
   );

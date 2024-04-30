@@ -33,7 +33,7 @@ const Autocomplete = ({
   return (
     <div
       onKeyDown={handleKeyDown}
-      className="flex flex-col p-3 bg-white rounded-xl absolute w-full top-16 sm:max-h-[700px] max-h-[500px] overflow-y-auto shadow-lg z-50"
+      className="flex flex-col p-3 bg-white rounded-xl absolute w-full top-16 max-h-[425px] overflow-y-auto shadow-lg z-50"
     >
       {isLoading && <Loader bgColor="bg-white" size={75} />}
       {!isLoading &&

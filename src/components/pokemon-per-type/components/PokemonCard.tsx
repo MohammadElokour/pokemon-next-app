@@ -1,11 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import { getTypeIdFromUrl } from "@src/utils/shared";
-import { Pokemon } from "@src/types/pokemon";
 import Image from "next/image";
+import { Pokemon } from "@src/types/pokemon";
 
 type PokemonPerTypeProps = {
-  typeId: string;
   pokemon: { name: string; url: string };
 };
 
@@ -15,7 +13,7 @@ const getPokemonData = async (url: string) => {
   return data as Pokemon;
 };
 
-const PokemonCard = async ({ typeId, pokemon }: PokemonPerTypeProps) => {
+const PokemonCard = async ({ pokemon }: PokemonPerTypeProps) => {
   const { name: pokemonName, url } = pokemon;
 
   const pokemonData = await getPokemonData(url);
@@ -28,7 +26,7 @@ const PokemonCard = async ({ typeId, pokemon }: PokemonPerTypeProps) => {
   return (
     <Link href={`/pokemon/${id}`}>
       <div
-        className={`${bgGradient} p-2 w-full min-h-[200px] transition-all hover:ring-inset hover:ring-4 ring-white rounded-2xl flex justify-evenly items-center cursor-pointer`}
+        className={`${bgGradient} p-2 w-full min-h-[200px] transition-all hover:ring ring-white rounded-2xl flex justify-evenly items-center cursor-pointer`}
       >
         <Image
           src={pokemonImgSrc}
