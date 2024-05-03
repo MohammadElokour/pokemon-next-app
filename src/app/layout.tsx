@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} max-w-screen-xl min-h-screen mx-auto overflow-hidden px-5 flex flex-col gap-6 justify-between bg-blue-950`}
+        className={`${inter.className} max-w-screen-xl min-h-screen mx-auto overflow-hidden px-5 flex flex-col gap-2 sm:gap-4 justify-between bg-blue-950`}
       >
         <Header />
         <MainContainer>{children}</MainContainer>

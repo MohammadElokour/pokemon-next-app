@@ -1,11 +1,12 @@
 "use client";
 
-import { SearchNormal1 } from "iconic-react";
-import { useRouter } from "next/navigation";
-
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 import Autocomplete from "./Autocomplete";
+import { useRouter } from "next/navigation";
 import { Pokemon } from "@src/types/pokemon";
+import { SearchNormal1 } from "iconic-react";
 
 export const SearchInput = () => {
   const inputRef = React.useRef<HTMLInputElement | null>(null);
@@ -82,8 +83,32 @@ export const SearchInput = () => {
 
   return (
     <>
-      <div className="relative flex text-center flex-shrink-0 flex-col gap-10 p-5 bg-blue-200 rounded-3xl shadow-xl z-50">
-        <form onSubmit={onSubmit} className="relative">
+      <div className="relative flex items-center mt-5 gap-3 p-3 bg-blue-200 rounded-3xl shadow-xl z-50">
+        <Link
+          href="/"
+          className="flex flex-shrink-0 sm:hidden ring ring-[#444b53] rounded-full"
+        >
+          <Image
+            src="/pokeball-logo.png"
+            width={54}
+            height={54}
+            alt="Pokeball Logo"
+          />
+        </Link>
+        <Link
+          href="/"
+          className="hidden sm:flex self-center justify-center items-center p-2 mx-auto transition-all w-fit border-b-2 rounded-3xl border-transparent hover:border-blue-950"
+        >
+          <Image
+            src="/pokemon_logo.png"
+            alt="Pokemon Logo"
+            quality={100}
+            width={165}
+            height={65}
+            priority
+          />
+        </Link>
+        <form onSubmit={onSubmit} className="relative w-full">
           <div className="w-full m-auto flex flex-grow items-center py-3 px-3 bg-white text-gray-500 rounded-xl [&>input:focus-within]:placeholder-transparent focus-within:shadow-md focus-within:text-gray-700 focus-within:bg-white">
             <SearchNormal1 size="22" color="#6b7280" />
             <input
@@ -94,7 +119,7 @@ export const SearchInput = () => {
               onChange={onChange}
               placeholder="Search for a Pokémon"
               onFocus={() => setIsFocused(true)}
-              className="w-10 pl-2 text-lg flex-grow bg-transparent outline-none mt-0.5"
+              className="w-10 pl-2 text-md sm:text-lg flex-grow bg-transparent outline-none mt-0.5"
             />
           </div>
           {pokemonNames.length >= 1 && isFocused && (

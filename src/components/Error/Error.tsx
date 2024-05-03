@@ -15,10 +15,10 @@ const Error = ({
   return (
     <div className="flex w-full rounded-2xl bg-slate-800 text-center justify-center">
       <div className="self-center">
-        <p className="text-4xl text-gray-300 font-semibold mb-2">{title}</p>
-        <p className="text-3xl text-gray-300 font-semibold">{msg}</p>
+        <p className="text-2xl sm:text-4xl text-gray-300 font-semibold mb-2">{title}</p>
+        <p className="text-1xl sm:text-3xl text-gray-300 font-semibold">{msg}</p>
         <Image
-          className="rounded-full z-10 my-7 mx-auto"
+          className="w-[250px] sm:w-[500px] rounded-full z-10 my-7 mx-auto"
           src="/error.png"
           alt="error img"
           quality={50}

@@ -14,10 +14,10 @@ const TypeCard = ({ typeData }: TypeProps) => {
   return (
     <Link href={`pokemon/type/${id}`} className="last:mb-1">
       <div
-        className={`${bgColor} p-3 gap-3 w-full min-h-40 hover:ring overflow-hidden ring-white transition-all rounded-2xl flex justify-evenly items-center cursor-pointer`}
+        className={`${bgColor} p-4 sm:p-3 sm:min-h-40 gap-3 w-full hover:ring overflow-hidden ring-white transition-all rounded-2xl flex justify-evenly items-center cursor-pointer`}
       >
         <Image
-          className="ring ring-white rounded-full flex-shrink-0"
+          className="w-[75px] sm:w-[100px] ring ring-white rounded-full flex-shrink-0"
           src={`/types-icons/${typeName}.png`}
           alt={`${typeName} pokemon type icon`}
           quality={100}
@@ -25,7 +25,7 @@ const TypeCard = ({ typeData }: TypeProps) => {
           height={100}
           priority
         />
-        <p className="text-left text-4xl uppercase text-white font-bold tracking-wider min-w-[207px]">
+        <p className="text-left text-2xl sm:text-4xl uppercase text-white font-bold tracking-wider min-w-[207px]">
           {typeName}
         </p>
       </div>
