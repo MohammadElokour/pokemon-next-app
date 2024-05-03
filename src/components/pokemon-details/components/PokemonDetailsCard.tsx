@@ -111,7 +111,7 @@ const PokemonDetailsCard = ({ pokemonData }: { pokemonData: Pokemon }) => {
     <div
       className={`${bgGradient} w-full flex flex-col items-center justify-between bg-opacity-85 rounded-2xl z-0 gap-10 overflow-x-hidden`}
     >
-      <div className="w-full flex p-5 justify-between items-center gap-1 sticky top-0 backdrop-blur-md z-20">
+      <div className="w-full flex p-5 justify-between items-center gap-1 sticky top-0 bg-white bg-opacity-25 backdrop-blur-md z-20">
         <TypeBadge typeId={type1Id} typeName={type1Name} />
         <p className="text-center text-xl sm:text-4xl uppercase text-nowrap overflow-hidden text-ellipsis max-w-fit text-white font-bold tracking-wider">
           {name}
