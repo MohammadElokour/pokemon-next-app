@@ -46,6 +46,7 @@ export const SearchInput = () => {
       if (!val) return;
       setVal("");
       inputRef.current?.blur();
+      setIsFocused(false);
       router.push(`/pokemon/${val.toLocaleLowerCase()}/`);
     },
     [router, val]
@@ -97,7 +98,7 @@ export const SearchInput = () => {
         </Link>
         <Link
           href="/"
-          className="hidden sm:flex self-center justify-center items-center p-2 mx-auto transition-all w-fit border-b-2 rounded-3xl border-transparent hover:border-blue-950"
+          className="hidden sm:flex self-center justify-center items-center p-2 mx-auto transition-all w-fit rounded-3xl hover:bg-blue-300 border-4 border-transparent hover:border-[#444b53]"
         >
           <Image
             src="/pokemon_logo.png"
@@ -136,7 +137,7 @@ export const SearchInput = () => {
         <div
           id="backdrop"
           onClick={() => setIsFocused(false)}
-          className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-30"
+          className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-50 z-30"
         />
       )}
     </>

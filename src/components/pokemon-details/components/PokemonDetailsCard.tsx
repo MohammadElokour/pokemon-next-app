@@ -109,7 +109,7 @@ const PokemonDetailsCard = ({ pokemonData }: { pokemonData: Pokemon }) => {
 
   return (
     <div
-      className={`${bgGradient} w-full flex flex-col items-center justify-between bg-opacity-85 rounded-2xl z-0 gap-10 overflow-x-hidden`}
+      className={`${bgGradient} w-full flex flex-col items-center justify-between bg-opacity-85 rounded-2xl z-0 gap-0 sm:gap-10 overflow-x-hidden`}
     >
       <div className="w-full flex p-5 justify-between items-center gap-1 sticky top-0 bg-white bg-opacity-25 backdrop-blur-md z-20">
         <TypeBadge typeId={type1Id} typeName={type1Name} />
@@ -124,8 +124,8 @@ const PokemonDetailsCard = ({ pokemonData }: { pokemonData: Pokemon }) => {
           </div>
         )}
       </div>
-      <div className="flex items-center flex-col sm:flex-row gap-10">
-        <div className="flex flex-col text-center justify-center gap-4">
+      <div className="flex items-center flex-col sm:flex-row gap-5 sm:gap-10">
+        <div className="flex flex-col text-center justify-center sm:gap-4">
           <Image
             className="w-[150px] h-[150px] sm:w-[300px] sm:h-[300px] self-center"
             src={pokemonImgSrc}

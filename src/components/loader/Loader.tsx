@@ -10,7 +10,7 @@ const Loader = ({
 }) => {
   return (
     <div
-      className={`flex w-full rounded-2xl ${bgColor} text-center justify-center min-h-[200px]`}
+      className={`flex w-full h-[calc(100dvh-210px)] sm:h-[calc(100dvh-200px)] rounded-2xl ${bgColor} text-center items-center justify-center min-h-[200px]`}
     >
       <div className="self-center">
         <Image

@@ -20,7 +20,7 @@ const PokemonTypes = async () => {
 
   return (
     <section className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full">
-      {pokemonTypesList.map((type) => (
+      {pokemonTypesList.toSpliced(-2).map((type) => (
         <React.Fragment key={type.name}>
           <TypeCard typeData={type} />
         </React.Fragment>
