@@ -1,8 +1,12 @@
 import PokemonDetails from "@src/components/pokemon-details";
 import React from "react";
 
-const PokemonDetailsPage = ({ params }: { params: { pokemonId: string } }) => {
-  const { pokemonId } = params;
+const PokemonDetailsPage = async ({
+  params,
+}: {
+  params: Promise<{ pokemonId: string }>;
+}) => {
+  const { pokemonId } = await params;
   return <PokemonDetails id={pokemonId} />;
 };
 

@@ -11,7 +11,7 @@ const TypeBadge = ({
 }) => {
   return (
     <Link href={`/pokemon/type/${typeId}`}>
-      <div className="duration-100 lg:py-3 lg:px-5 lg:min-w-[335px] flex lg:items-center lg:gap-3 top-5 lg:border-4 border-white [&>img]:hover:ring rounded-full hover:ring ring-white">
+      <div className="duration-100 lg:py-3 lg:px-5 lg:min-w-[335px] flex lg:items-center lg:gap-3 top-5 lg:border-4 border-white [&>img]:hover:ring-3 rounded-full hover:ring-3 ring-white">
         <Image
           className="border-4 ring-white border-white rounded-full w-[50px] h-[50px] sm:w-[120px] sm:h-[120px] lg:w-[100px] lg:h-[100px] "
           src={`/types-icons/${typeName}.png`}

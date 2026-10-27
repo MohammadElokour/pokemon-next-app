@@ -16,7 +16,7 @@ const PokemonDetailsCard = ({ pokemonData }: { pokemonData: Pokemon }) => {
   const type2Name = types.length > 1 ? types[1].type.name : null;
   const type1Id = getTypeIdFromUrl(types[0].type.url);
   const type2Id = types.length > 1 ? getTypeIdFromUrl(types[1].type.url) : null;
-  const bgGradient = `bg-gradient-to-r from-${type1Color} to-${type2Color}`;
+  const bgGradient = `bg-linear-to-r from-${type1Color} to-${type2Color}`;
   const baseStatsValues = stats.map((stat) => stat.base_stat);
   const weightInKg = weight / 10;
   const heightInMeters = height / 10;
@@ -58,8 +58,8 @@ const PokemonDetailsCard = ({ pokemonData }: { pokemonData: Pokemon }) => {
           "HP",
           "Attack",
           "Defense",
-          "Sp. Defense",
           "Sp. Attack",
+          "Sp. Defense",
           "Speed",
         ],
       },
@@ -109,9 +109,9 @@ const PokemonDetailsCard = ({ pokemonData }: { pokemonData: Pokemon }) => {
 
   return (
     <div
-      className={`${bgGradient} w-full flex flex-col items-center justify-between bg-opacity-85 rounded-2xl z-0 gap-0 sm:gap-10 overflow-x-hidden`}
+      className={`${bgGradient} w-full flex flex-col items-center justify-between rounded-2xl z-0 gap-0 sm:gap-10 overflow-x-hidden`}
     >
-      <div className="w-full flex p-5 justify-between items-center gap-1 sticky top-0 bg-white bg-opacity-25 backdrop-blur-md z-20">
+      <div className="w-full flex p-5 justify-between items-center gap-1 sticky top-0 bg-white/25 backdrop-blur-md z-20">
         <TypeBadge typeId={type1Id} typeName={type1Name} />
         <p className="text-center text-xl sm:text-4xl uppercase text-nowrap overflow-hidden text-ellipsis max-w-fit text-white font-bold tracking-wider">
           {name}
@@ -134,7 +134,7 @@ const PokemonDetailsCard = ({ pokemonData }: { pokemonData: Pokemon }) => {
             alt={`image of ${name}`}
           />
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 sm:-mt-3">
-            <thead className="text-xs text-gray-300 uppercase bg-gray-700 bg-opacity-75">
+            <thead className="text-xs text-gray-300 uppercase bg-gray-700/75">
               <tr>
                 <th scope="col" className="px-6 py-3 text-center rounded-tl-xl">
                   Weight (kg)
@@ -145,7 +145,7 @@ const PokemonDetailsCard = ({ pokemonData }: { pokemonData: Pokemon }) => {
               </tr>
             </thead>
             <tbody>
-              <tr className="text-gray-300 bg-gray-800 bg-opacity-80">
+              <tr className="text-gray-300 bg-gray-800/80">
                 <td className="px-6 py-4 text-center rounded-bl-xl">
                   {weightInKg}
                 </td>

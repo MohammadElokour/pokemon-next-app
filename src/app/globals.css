@@ -1,6 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@source inline("{bg,from,to}-{normal,fighting,flying,poison,ground,rock,bug,ghost,steel,fire,water,grass,electric,psychic,ice,dragon,dark,fairy,unknown,shadow}");
+
+@custom-variant child (& > *);
+@custom-variant child-hover (& > *:hover);
+
+@theme {
+  --color-normal: #929da3;
+  --color-fighting: #ce416b;
+  --color-flying: #8fa9de;
+  --color-poison: #aa6bc8;
+  --color-ground: #d97845;
+  --color-rock: #c5b78c;
+  --color-bug: #91c12f;
+  --color-ghost: #5269ad;
+  --color-steel: #5a8ea2;
+  --color-fire: #ff9d55;
+  --color-water: #5090d6;
+  --color-grass: #63bc5a;
+  --color-electric: #f4d23c;
+  --color-psychic: #fa7179;
+  --color-ice: #73cec0;
+  --color-dragon: #0b6dc2;
+  --color-dark: #745d4e;
+  --color-fairy: #f1aceb;
+  --color-unknown: #68a090;
+  --color-shadow: #5a5465;
+}
 
 :root {
   scrollbar-gutter: stable;
@@ -11,6 +37,10 @@
   background-color: #00000066;
   border-radius: 30px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.apexcharts-toolbar {
+  background: transparent !important;
 }
 
 .apexcharts-menu-icon {

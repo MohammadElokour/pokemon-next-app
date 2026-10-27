@@ -1,11 +1,12 @@
 import React from "react";
 import Error from "@src/components/Error";
-import { Pokemon } from "@src/types/pokemon";
+import { getPokemon } from "@src/apis/Requests";
+import { safeDecode } from "@src/utils/shared";
 import PokemonDetailsCard from "./components/PokemonDetailsCard";
 
 const PokemonDetails = async ({ id }: { id: string }) => {
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
-  if (!res.ok)
+  const data = await getPokemon(safeDecode(id));
+  if (!data)
     return (
       <Error
         title="Not Found!"
@@ -13,7 +14,6 @@ const PokemonDetails = async ({ id }: { id: string }) => {
       />
     );
 
-  const data = (await res.json()) as Pokemon;
   if (!data.id)
     return (
       <Error title="No Data!" msg="There is no data for this category yet!" />

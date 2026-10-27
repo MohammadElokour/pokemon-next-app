@@ -40,7 +40,7 @@ const Autocomplete = ({
         names.map((name) => (
           <Link
             key={name}
-            className="autocomplete-link flex items-center gap-2 py-3 px-3 rounded-xl backdrop:outline-none hover:bg-gray-100 focus:bg-gray-100 focus-within:bg-gray-100 focus-visible:bg-gray-100 focus-within:outline-none focus:outline-none focus-visible:outline-none"
+            className="autocomplete-link flex items-center gap-2 py-3 px-3 rounded-xl backdrop:outline-hidden hover:bg-gray-100 focus:bg-gray-100 focus-within:bg-gray-100 focus-visible:bg-gray-100 focus-within:outline-hidden focus:outline-hidden focus-visible:outline-hidden"
             href={`/pokemon/${name.toLocaleLowerCase()}/`}
             onClick={handleSelect}
           >

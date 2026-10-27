@@ -1,17 +1,12 @@
 import React from "react";
 import Error from "@src/components/Error";
+import { getPokemonByType } from "@src/apis/Requests";
 import PokemonCard from "./components/PokemonCard";
 
-type PokeTypeResponse = {
-  id: string;
-  pokemon: { pokemon: { name: string; url: string } }[];
-};
-
 const PokemonPerType = async ({ id }: { id: string }) => {
-  const res = await fetch(`https://pokeapi.co/api/v2/type/${id}`);
-  if (!res.ok) return <Error />;
+  const data = await getPokemonByType(id);
+  if (!data) return <Error />;
 
-  const data = (await res.json()) as PokeTypeResponse;
   if (!data.pokemon.length)
     return (
       <Error title="No Data!" msg="There is no data for this category yet!" />

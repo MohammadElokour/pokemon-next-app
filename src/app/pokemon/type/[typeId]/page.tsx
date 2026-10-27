@@ -1,8 +1,12 @@
 import React from "react";
 import PokemonPerType from "@src/components/pokemon-per-type";
 
-const PokemonBasedOnType = ({ params }: { params: { typeId: string } }) => {
-  const { typeId } = params;
+const PokemonBasedOnType = async ({
+  params,
+}: {
+  params: Promise<{ typeId: string }>;
+}) => {
+  const { typeId } = await params;
   return <PokemonPerType id={typeId} />;
 };
 

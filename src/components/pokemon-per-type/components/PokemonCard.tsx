@@ -1,32 +1,28 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Pokemon } from "@src/types/pokemon";
+import { getPokemonByUrl, NamedResource } from "@src/apis/Requests";
 
 type PokemonPerTypeProps = {
-  pokemon: { name: string; url: string };
-};
-
-const getPokemonData = async (url: string) => {
-  const res = await fetch(url);
-  const data = await res.json();
-  return data as Pokemon;
+  pokemon: NamedResource;
 };
 
 const PokemonCard = async ({ pokemon }: PokemonPerTypeProps) => {
   const { name: pokemonName, url } = pokemon;
 
-  const pokemonData = await getPokemonData(url);
-  const { sprites, types, id } = pokemonData;
-  const pokemonImgSrc = sprites.front_default ?? "/pokeball.png";
-  const type1Color = types[0].type.name;
-  const type2Color = types.length > 1 ? types[1].type.name : type1Color;
-  const bgGradient = `bg-gradient-to-r from-${type1Color} to-${type2Color}`;
+  // a failed request for one card shouldn't break the whole page,
+  // so fall back to a plain card that links by name
+  const pokemonData = await getPokemonByUrl(url);
+  const pokemonImgSrc = pokemonData?.sprites.front_default ?? "/pokeball.png";
+  const types = pokemonData?.types ?? [];
+  const type1Color = types[0]?.type.name ?? "unknown";
+  const type2Color = types[1]?.type.name ?? type1Color;
+  const bgGradient = `bg-linear-to-r from-${type1Color} to-${type2Color}`;
 
   return (
-    <Link href={`/pokemon/${id}`}>
+    <Link href={`/pokemon/${pokemonData?.id ?? pokemonName}`}>
       <div
-        className={`${bgGradient} p-2 w-full min-h-[200px] transition-all hover:ring ring-white rounded-2xl flex justify-evenly items-center cursor-pointer`}
+        className={`${bgGradient} p-2 w-full min-h-[200px] transition-all hover:ring-3 ring-white rounded-2xl flex justify-evenly items-center cursor-pointer`}
       >
         <Image
           src={pokemonImgSrc}
